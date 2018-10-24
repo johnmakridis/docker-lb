@@ -1,3 +1,5 @@
+app/src/node_modules/ 
+
 # Logs
 logs
 *.log
