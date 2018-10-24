@@ -1,0 +1,71 @@
+version: '3.2'
+services:
+  app1:
+      build: ./app
+      tty: true
+      volumes:
+        - './app/src:/app-dir-inside-container'
+  app2:
+      build: ./app
+      tty: true
+      volumes:
+        - './app/src:/app-dir-inside-container'
+  app3:
+      build: ./app
+      tty: true
+      volumes:
+        - './app/src:/app-dir-inside-container'
+  app4:
+      build: ./app
+      tty: true
+      volumes:
+        - './app/src:/app-dir-inside-container'
+  app5:
+      build: ./app
+      tty: true
+      volumes:
+        - './app/src:/app-dir-inside-container'
+  app6:
+      build: ./app
+      tty: true
+      volumes:
+        - './app/src:/app-dir-inside-container'
+  app7:
+      build: ./app
+      tty: true
+      volumes:
+        - './app/src:/app-dir-inside-container' 
+  app8:
+      build: ./app
+      tty: true
+      volumes:
+        - './app/src:/app-dir-inside-container'
+  app9:
+      build: ./app
+      tty: true
+      volumes:
+        - './app/src:/app-dir-inside-container'
+  app10:
+      build: ./app
+      tty: true
+      volumes:
+        - './app/src:/app-dir-inside-container'
+
+  loadbalancer:
+      build: ./load-balancer
+      tty: true
+      links:
+          - app1
+          - app2
+          - app3
+          - app4
+          - app5
+          - app6
+          - app7
+          - app8
+          - app9
+          - app10
+      ports:
+          - '8080:8080'
+volumes:
+  app:
