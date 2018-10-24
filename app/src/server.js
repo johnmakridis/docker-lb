@@ -5,7 +5,7 @@ const http = require("http");
 const cors = require("cors");
 
 
-var server = express();
+let server = express();
 server.set("port", 3000);
 
 server.use(logger("dev"));
@@ -51,12 +51,19 @@ server.use((err, req, res, next) => {
 });
 
 
-http.createServer(server).listen(server.get("port"), () => {
+const webServer = http.createServer(server).listen(server.get("port"), () => {
     console.log("Server listening on port " + server.get("port") + "\nPress CTRL+C to quit");
 });
 
 process.on("uncaughtException", (err) => {
     console.error("un Caught exception:" + err + " stack:" + err.stack);
+});
+
+process.on("SIGINT", () => {
+    webServer.close(() => {
+        console.log("Bye Bye! ;)");
+        process.exit(0);
+    });
 });
 
 module.exports = server;
