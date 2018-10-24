@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.route("/")
     .get((req, res, next) => {
-        res.send("Hello");
+        res.status(403).send("Access Denied")
     })
 
 
