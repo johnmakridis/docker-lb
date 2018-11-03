@@ -60,10 +60,7 @@ process.on("uncaughtException", (err) => {
 });
 
 process.on("SIGINT", () => {
-    webServer.close(() => {
-        console.log("Bye Bye! ;)");
-        process.exit(0);
-    });
+    webServer.close(() => { console.log("Bye Bye! ;)"); process.exit(0); });
 });
 
 module.exports = server;
